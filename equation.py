@@ -7,7 +7,6 @@ def solve_quadratic(a, b, c):
     if a == 0:
         raise ValueError("a cannot be 0")
     
-    # Обчислюємо дискримінант
     discriminant = b * b - 4 * a * c
     
     if discriminant < 0:
@@ -38,3 +37,28 @@ def print_results(a, b, c, num_roots, roots):
         print("There are 2 roots")
         print(f"x1 = {roots[0]}")
         print(f"x2 = {roots[1]}")
+
+
+if __name__ == "__main__":
+    print("Testing quadratic equation solver...")
+    
+    print("\nTest 1: 2x^2 + x - 3 = 0")
+    try:
+        num_roots, roots = solve_quadratic(2, 1, -3)
+        print_results(2, 1, -3, num_roots, roots)
+    except ValueError as e:
+        print(f"Error: {e}")
+    
+    print("\nTest 2: x^2 - 2x + 1 = 0")
+    try:
+        num_roots, roots = solve_quadratic(1, -2, 1)
+        print_results(1, -2, 1, num_roots, roots)
+    except ValueError as e:
+        print(f"Error: {e}")
+    
+    print("\nTest 3: x^2 + 1 = 0")
+    try:
+        num_roots, roots = solve_quadratic(1, 0, 1)  
+        print_results(1, 0, 1, num_roots, roots)
+    except ValueError as e:
+        print(f"Error: {e}")
