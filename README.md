@@ -1,1 +1,5 @@
-# quadratic-equation-solver
+# Quadratic Equation Solver
+
+Консольний застосунок для розв'язання квадратних рівнянь.
+
+## В розробці...
