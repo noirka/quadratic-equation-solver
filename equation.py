@@ -39,6 +39,15 @@ def print_results(a, b, c, num_roots, roots):
         print(f"x2 = {roots[1]}")
 
 
+def get_coefficient(name):
+    while True:
+        try:
+            value = input(f"{name} = ")
+            return float(value)
+        except ValueError:
+            print(f"Error. Expected a valid real number, got {value} instead")
+
+
 if __name__ == "__main__":
     print("Testing quadratic equation solver...")
     
