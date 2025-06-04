@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import math
+import sys
 
 
 def solve_quadratic(a, b, c):
@@ -72,6 +73,21 @@ def interactive_mode():
         print(f"Error. {e}")
 
 
+def main():
+    if len(sys.argv) == 1:
+        interactive_mode()
+    elif len(sys.argv) == 2:
+        print("File mode not implemented yet")
+    else:
+        print("Usage: python equation.py [filename]")
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    if len(sys.argv) == 1:
+        main()
+    else:
+        main()
 if __name__ == "__main__":
     print("Testing quadratic equation solver...")
     
