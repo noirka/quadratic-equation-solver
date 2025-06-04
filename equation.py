@@ -2,6 +2,7 @@
 
 import math
 import sys
+import os
 
 
 def solve_quadratic(a, b, c):
@@ -73,11 +74,52 @@ def interactive_mode():
         print(f"Error. {e}")
 
 
+def file_mode(filename):
+    if not os.path.exists(filename):
+        print(f"file {filename} does not exist")
+        sys.exit(1)
+    
+    try:
+        with open(filename, 'r') as file:
+            content = file.read().strip()
+            
+        parts = content.split()
+        if len(parts) != 3:
+            print("invalid file format")
+            sys.exit(1)
+        
+        try:
+            a = float(parts[0])
+            b = float(parts[1])
+            c = float(parts[2])
+        except ValueError:
+            print("invalid file format")
+            sys.exit(1)
+        
+        if a == 0:
+            print("Error. a cannot be 0")
+            sys.exit(1)
+        
+        num_roots, roots = solve_quadratic(a, b, c)
+        
+        print(f"Equation is: ({a}) x^2 + ({b}) x + ({c}) = 0")
+        if num_roots == 0:
+            print("There are 0 roots")
+        elif num_roots == 1:
+            print(f"There are 1 roots x1 = {roots[0]}")
+        else:
+            print(f"There are 2 roots x1 = {roots[0]}, x2 = {roots[1]}")
+            
+    except IOError:
+        print(f"file {filename} does not exist")
+        sys.exit(1)
+
+
 def main():
     if len(sys.argv) == 1:
         interactive_mode()
     elif len(sys.argv) == 2:
-        print("File mode not implemented yet")
+        file_mode(sys.argv[1])
     else:
         print("Usage: python equation.py [filename]")
         sys.exit(1)
