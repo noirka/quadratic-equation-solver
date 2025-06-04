@@ -48,6 +48,30 @@ def get_coefficient(name):
             print(f"Error. Expected a valid real number, got {value} instead")
 
 
+def interactive_mode():
+    print("Quadratic Equation Solver - Interactive Mode")
+    
+    while True:
+        try:
+            a = get_coefficient("a")
+            if a == 0:
+                print("Error. a cannot be 0")
+                continue
+            break
+        except KeyboardInterrupt:
+            print("\nExiting...")
+            return
+    
+    b = get_coefficient("b")
+    c = get_coefficient("c")
+    
+    try:
+        num_roots, roots = solve_quadratic(a, b, c)
+        print_results(a, b, c, num_roots, roots)
+    except ValueError as e:
+        print(f"Error. {e}")
+
+
 if __name__ == "__main__":
     print("Testing quadratic equation solver...")
     
