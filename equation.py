@@ -4,6 +4,9 @@ import math
 
 
 def solve_quadratic(a, b, c):
+    if a == 0:
+        raise ValueError("a cannot be 0")
+    
     discriminant = b * b - 4 * a * c
     
     if discriminant < 0:
