@@ -153,8 +153,3 @@ if __name__ == "__main__":
         print_results(1, 0, 1, num_roots, roots)
     except ValueError as e:
         print(f"Error: {e}")
-
-        print("This is a temporary experimental feature for git revert demonstration")
-
-def temp_function():
-    return "temporary feature"
